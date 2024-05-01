@@ -1,0 +1,8 @@
+height <- c(151,174,138,186,128,136,179,163,152,131)
+weight <- c(63,81,56,91,47,57,76,72,62,48)
+relation <- lm(weight~height)
+n=readline(prompt = 'Enter Your height : ')
+n=as.integer(n)
+a <- data.frame(height=n)
+result <- predict(relation,a)
+print(paste('Predicted weight of the pearson with height',a,'is',result))

@@ -1,0 +1,10 @@
+library(cluster)
+data("iris")
+iris_numeric = iris[, -5]
+set.seed(123)
+kmeans_result = kmeans(iris_numeric, centers = 3)
+cm = table(iris$Species, kmeans_result$cluster)
+accuracy = sum(diag(cm)/sum(cm))
+cat('Accuracy:',accuracy,'\n')
+print(cm)
+clusplot(iris_numeric,kmeans_result$cluster,color = TRUE, shade = TRUE, labels = 1, lines = 0)
